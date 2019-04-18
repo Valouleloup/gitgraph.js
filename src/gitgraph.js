@@ -1127,7 +1127,7 @@
    **/
   Commit.prototype.render = function () {
     var commitOffsetForTags = this.template.commit.tag.spacingX;
-    var commitOffsetLeft = (this.parent.columnMax + 1) * this.template.branch.spacingX + commitOffsetForTags;
+    var commitOffsetLeft = (this.parent.columnMax + 1) * this.template.branch.spacingX;
 
     // Label
     if (this.showLabel) {
@@ -1193,7 +1193,7 @@
         font: this.tagFont
       });
 
-      commitOffsetLeft += tag.width - commitOffsetForTags;
+      commitOffsetLeft += tag.width + 16;
     }
 
     // Detail
@@ -1360,7 +1360,7 @@
 
     var x = 0;
     var y = 0;
-    var tagColumn = (commit.parent.columnMax + 1);
+    var tagColumn = (commit.parent.columnMax + 1.5);
     if (_isHorizontal(commit.parent)) {
       x = commit.x - commit.dotSize / 2;
       y = (tagColumn * commit.template.commit.tag.spacingY) - commit.template.commit.tag.spacingY / 2;
